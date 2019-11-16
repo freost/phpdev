@@ -1,12 +1,14 @@
 # Docker based PHP development environment
 
-The PHP development environment starts the following Docker containers:
+The PHP development environment starts the following services:
 
-- phpdev (PHP + Apache, port 8000)
-- phpdev-redis (Redis, port 6379)
-- phpdev-postgres (Postgres, port 5432)
-- phpdev-mariadb (MariaDB, port 3306)
-- phpdev-mysql (MySQL, port 3307)
+| Service  | Container        | Port | Description  |
+|----------|------------------|------|--------------|
+| php      | phpdev           | 8000 | Apache + PHP |
+| redis    | phpdev-redis     | 6379 | Redis        |
+| postgres | phpdev-postgres  | 5432 | PostgreSQL   |
+| mariadb  | phpdev-mariadb   | 3306 | MariaDB      |
+| mysql    | phpdev-mysql     | 3307 | MySQL        |
 
 -----------
 
@@ -30,6 +32,12 @@ Starting the environment is done using the following command:
 
 ```
 docker-compose up -d
+```
+
+If you don't want to start all services then you can pass a list of the ones you want to use:
+
+```
+docker-compose up -d php redis postgres
 ```
 
 ## Stopping
