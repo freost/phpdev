@@ -1,6 +1,6 @@
 # Docker based PHP development environment
 
-The PHP development environment starts the following services:
+The PHP development environment includes the following services:
 
 | Service  | Container        | Port | Description  |
 |----------|------------------|------|--------------|
