@@ -1,0 +1,50 @@
+version: '3.7'
+services:
+    php:
+        build:
+            context: './docker/php-${PHP_VERSION}-apache'
+            dockerfile: Dockerfile
+        container_name: 'phpdev'
+        ports:
+            - '8000:80'
+        volumes:
+            - './htdocs:/var/www/html'
+            - './docker/php-${PHP_VERSION}-apache/apache/sites-available/000-default.conf:/etc/apache2/sites-available/000-default.conf'
+            - './docker/php-${PHP_VERSION}-apache/php/conf.d/docker-php-ext-opcache.ini:/usr/local/etc/php/conf.d/docker-php-ext-opcache.ini'
+            - './docker/php-${PHP_VERSION}-apache/php/conf.d/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini'
+            - './docker/php-${PHP_VERSION}-apache/php/conf.d/overrides.ini:/usr/local/etc/php/conf.d/overrides.ini'
+        environment:
+            MAKO_ENV: dev
+    redis:
+        image: 'redis:${REDIS_VERSION}'
+        container_name: 'phpdev-redis'
+        ports:
+            - '6379:6379'
+        volumes:
+            - './storage/redis:/data'
+        entrypoint: redis-server --appendonly yes
+    postgres:
+        image: 'postgres:${POSTGRES_VERSION}'
+        container_name: 'phpdev-postgresql'
+        ports:
+            - '5432:5432'
+        volumes:
+            - './storage/postgres:/var/lib/postgresql/data'
+    mariadb:
+        image: 'mariadb:${MARIADB_VERSION}'
+        container_name: 'phpdev-mariadb'
+        ports:
+            - '3306:3306'
+        volumes:
+            - './storage/mariadb:/var/lib/mysql'
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+    mysql:
+        image: 'mysql:${MYSQL_VERSION}'
+        container_name: 'phpdev-mysql'
+        ports:
+            - '3307:3306'
+        volumes:
+            - './storage/mysql:/var/lib/mysql'
+        environment:
+            MYSQL_ROOT_PASSWORD: root
