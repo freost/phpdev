@@ -1,5 +1,10 @@
 import os
 
+from shutil import copyfile
+
+if not os.path.isfile('.env'):
+    copyfile('.env.dist', '.env')
+
 directory = os.path.dirname(os.path.realpath(__file__))
 
 directories = [
