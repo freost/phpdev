@@ -9,6 +9,7 @@ services:
             - '8000:80'
         volumes:
             - './htdocs:/var/www/html'
+            - './docker/php-${PHP_VERSION}-apache/apache/ports.conf:/etc/apache2/ports.conf'
             - './docker/php-${PHP_VERSION}-apache/apache/sites-available/000-default.conf:/etc/apache2/sites-available/000-default.conf'
             - './docker/php-${PHP_VERSION}-apache/php/conf.d/docker-php-ext-opcache.ini:/usr/local/etc/php/conf.d/docker-php-ext-opcache.ini'
             - './docker/php-${PHP_VERSION}-apache/php/conf.d/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini'
@@ -30,6 +31,8 @@ services:
             - '5432:5432'
         volumes:
             - './storage/postgres:/var/lib/postgresql/data'
+        environment:
+            POSTGRES_PASSWORD: ${POSTGRES_ROOT_PASSWORD}
     mariadb:
         image: 'mariadb:${MARIADB_VERSION}'
         container_name: 'phpdev-mariadb'
