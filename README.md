@@ -2,13 +2,14 @@
 
 The PHP development environment includes the following services:
 
-| Service  | Container        | Port | Description  |
-|----------|------------------|------|--------------|
-| php      | phpdev           | 8000 | Apache + PHP |
-| redis    | phpdev-redis     | 6379 | Redis        |
-| postgres | phpdev-postgres  | 5432 | PostgreSQL   |
-| mariadb  | phpdev-mariadb   | 3306 | MariaDB      |
-| mysql    | phpdev-mysql     | 3307 | MySQL        |
+| Service    | Container         | Port  | Description  |
+|------------|-------------------|-------|--------------|
+| php        | phpdev            | 8000  | Apache + PHP |
+| beanstalkd | phpdev-beanstalkd | 11300 | Beanstalkd   |
+| redis      | phpdev-redis      | 6379  | Redis        |
+| postgres   | phpdev-postgres   | 5432  | PostgreSQL   |
+| mariadb    | phpdev-mariadb    | 3306  | MariaDB      |
+| mysql      | phpdev-mysql      | 3307  | MySQL        |
 
 -----------
 
