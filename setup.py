@@ -11,6 +11,15 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
+    # Get path to current directory
+
+    current_directory = os.path.dirname(os.path.realpath(__file__))
+
+    # Create php.env if it doesn't already exist
+
+    if not os.path.isfile(current_directory + '/env/php.env'):
+        copyfile(current_directory + '/env/php.env.dist', current_directory + '/env/php.env')
+
     # Create .env if it doesn't already exist
 
     if not os.path.isfile('.env'):
@@ -36,14 +45,12 @@ if __name__ == '__main__':
 
     # Create the required storage directories
 
-    directory = os.path.dirname(os.path.realpath(__file__))
-
     directories = [
-        directory + '/storage',
-        directory + '/storage/mariadb',
-        directory + '/storage/mysql',
-        directory + '/storage/postgres',
-        directory + '/storage/redis',
+        current_directory + '/storage',
+        current_directory + '/storage/mariadb',
+        current_directory + '/storage/mysql',
+        current_directory + '/storage/postgres',
+        current_directory + '/storage/redis',
     ]
 
     for directory in directories:

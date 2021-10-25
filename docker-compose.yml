@@ -14,8 +14,8 @@ services:
       - './docker/php-${PHP_VERSION}-apache/php/conf.d/docker-php-ext-opcache.ini:/usr/local/etc/php/conf.d/docker-php-ext-opcache.ini'
       - './docker/php-${PHP_VERSION}-apache/php/conf.d/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini'
       - './docker/php-${PHP_VERSION}-apache/php/conf.d/overrides.ini:/usr/local/etc/php/conf.d/overrides.ini'
-    environment:
-      MAKO_ENV: dev
+    env_file:
+      - './env/php.env'
   beanstalkd:
     build:
       context: './docker/beanstalkd'
