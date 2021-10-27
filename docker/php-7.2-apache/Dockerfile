@@ -26,6 +26,11 @@ RUN docker-php-ext-install -j$(nproc) gd
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
 
+# Install pcntl
+
+RUN docker-php-ext-configure pcntl --enable-pcntl
+RUN docker-php-ext-install pdo pdo_mysql pcntl
+
 # Enable mod_rewrite
 
 RUN a2enmod rewrite
