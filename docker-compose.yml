@@ -49,15 +49,15 @@ services:
       - './storage/mariadb:/var/lib/mysql'
     environment:
       MYSQL_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
-  mysql:
-    image: 'mysql:${MYSQL_VERSION}'
-    container_name: 'phpdev-mysql'
-    ports:
-      - '3307:3306'
-    volumes:
-      - './storage/mysql:/var/lib/mysql'
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+#  mysql:
+#    image: 'mysql:${MYSQL_VERSION}'
+#    container_name: 'phpdev-mysql'
+#    ports:
+#      - '3307:3306'
+#    volumes:
+#      - './storage/mysql:/var/lib/mysql'
+#    environment:
+#      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   mailhog:
     image: 'mailhog/mailhog'
     container_name: 'phpdev-mailhog'
