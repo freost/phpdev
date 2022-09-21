@@ -32,24 +32,24 @@ services:
     volumes:
       - './storage/redis:/data'
     entrypoint: redis-server --appendonly yes
-  postgres:
-    image: 'postgres:${POSTGRES_VERSION}'
-    container_name: 'phpdev-postgresql'
-    ports:
-      - '5432:5432'
-    volumes:
-      - './storage/postgres:/var/lib/postgresql/data'
-    environment:
-      POSTGRES_PASSWORD: ${POSTGRES_ROOT_PASSWORD}
-  mariadb:
-    image: 'mariadb:${MARIADB_VERSION}'
-    container_name: 'phpdev-mariadb'
-    ports:
-      - '3306:3306'
-    volumes:
-      - './storage/mariadb:/var/lib/mysql'
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+#  postgres:
+#    image: 'postgres:${POSTGRES_VERSION}'
+#    container_name: 'phpdev-postgresql'
+#    ports:
+#      - '5432:5432'
+#    volumes:
+#      - './storage/postgres:/var/lib/postgresql/data'
+#    environment:
+#      POSTGRES_PASSWORD: ${POSTGRES_ROOT_PASSWORD}
+#  mariadb:
+#    image: 'mariadb:${MARIADB_VERSION}'
+#    container_name: 'phpdev-mariadb'
+#    ports:
+#      - '3306:3306'
+#    volumes:
+#      - './storage/mariadb:/var/lib/mysql'
+#    environment:
+#      MYSQL_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
 #  mysql:
 #    image: 'mysql:${MYSQL_VERSION}'
 #    container_name: 'phpdev-mysql'
