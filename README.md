@@ -2,17 +2,15 @@
 
 The PHP development environment includes the following services:
 
-| Service    | Container         | Port        | Description  |
-|------------|-------------------|-------------|--------------|
-| beanstalkd | phpdev-beanstalkd | 11300       | Beanstalkd   |
-| mailhog    | phpdev-mailhog    | 8025, 10250 | Mailhog      |
-| mariadb    | phpdev-mariadb    | 3306        | MariaDB      |
-| mysql      | phpdev-mysql      | 3307        | MySQL        |
-| php        | phpdev            | 8000        | Apache + PHP |
-| postgres   | phpdev-postgres   | 5432        | PostgreSQL   |
-| redis      | phpdev-redis      | 6379        | Redis        |
-
-> Note that the `mysql` service is disabled be default because of a lack of native Apple silicon support
+| Service    | Container         | Port        | Description  | Enabled |
+|------------|-------------------|-------------|--------------|---------|
+| beanstalkd | phpdev-beanstalkd | 11300       | Beanstalkd   | ✓       |
+| mailhog    | phpdev-mailhog    | 8025, 10250 | Mailhog      | ✓       |
+| mariadb    | phpdev-mariadb    | 3306        | MariaDB      | ⨯       |
+| mysql      | phpdev-mysql      | 3307        | MySQL        | ⨯       |
+| php        | phpdev            | 8000        | Apache + PHP | ✓       |
+| postgres   | phpdev-postgres   | 5432        | PostgreSQL   | ⨯       |
+| redis      | phpdev-redis      | 6379        | Redis        | ✓       |
 
 -----------
 
