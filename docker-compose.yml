@@ -9,6 +9,7 @@ services:
       - '8000:80'
     volumes:
       - './htdocs:/var/www/html'
+      - './storage/data:/data'
       - './docker/php-${PHP_VERSION}-apache/apache/ports.conf:/etc/apache2/ports.conf'
       - './docker/php-${PHP_VERSION}-apache/apache/sites-available/000-default.conf:/etc/apache2/sites-available/000-default.conf'
       - './docker/php-${PHP_VERSION}-apache/php/conf.d/docker-php-ext-opcache.ini:/usr/local/etc/php/conf.d/docker-php-ext-opcache.ini'
@@ -64,3 +65,25 @@ services:
     ports:
       - '8025:8025'
       - '10250:1025'
+  tusd:
+    build:
+      context: './docker/tusd'
+      dockerfile: Dockerfile
+    container_name: 'phpdev-tusd'
+    ports:
+      - '10800:1080'
+    volumes:
+      - './storage/data:/data'
+      - './htdocs/archive-digitisation:/archive-digitisation'
+    env_file:
+      - './env/php.env'
+  cantaloupe:
+    build:
+      context: './docker/cantaloupe'
+      dockerfile: Dockerfile
+    container_name: 'phpdev-cantaloupe'
+    ports:
+      - '8182:8182'
+    volumes:
+      - './storage/data:/data'
+      - './docker/cantaloupe/cantaloupe.properties:/opt/cantaloupe.properties'
