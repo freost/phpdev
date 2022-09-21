@@ -22,6 +22,8 @@ Run the following script to create the required directories:
 python setup.py
 ```
 
+> Use the `--htdocs-source` argument if you want to symlink `htdocs` to an existing directory.
+
 Build the Docker images using the following command:
 
 ```
