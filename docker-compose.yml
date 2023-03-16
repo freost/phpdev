@@ -77,7 +77,6 @@ services:
 #  mongo-express:
 #    image: mongo-express
 #    container_name: 'phpdev-mongo-express'
-#    restart: always # Since it always crashes on startup
 #    depends_on:
 #      mongo:
 #        condition: service_started
