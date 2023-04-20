@@ -2,15 +2,17 @@
 
 The PHP development environment includes the following services:
 
-| Service    | Container         | Port        | Description  | Enabled |
-|------------|-------------------|-------------|--------------|---------|
-| beanstalkd | phpdev-beanstalkd | 11300       | Beanstalkd   | ✅      |
-| mailhog    | phpdev-mailhog    | 8025, 10250 | Mailhog      | ✅      |
-| mariadb    | phpdev-mariadb    | 3306        | MariaDB      | ❌      |
-| mysql      | phpdev-mysql      | 3307        | MySQL        | ❌      |
-| php        | phpdev            | 8000        | Apache + PHP | ✅      |
-| postgres   | phpdev-postgres   | 5432        | PostgreSQL   | ❌      |
-| redis      | phpdev-redis      | 6379        | Redis        | ✅      |
+| Service       | Container            | Port        | Description   | Enabled |
+|---------------|----------------------|-------------|---------------|---------|
+| beanstalkd    | phpdev-beanstalkd    | 11300       | Beanstalkd    | ✅      |
+| mailhog       | phpdev-mailhog       | 8025, 10250 | Mailhog       | ❌      |
+| mariadb       | phpdev-mariadb       | 3306        | MariaDB       | ❌      |
+| mongo         | phpdev-mongodb       | 27017       | MongoDB       | ❌      |
+| mongo-express | phpdev-mongo-express | 8081        | Mongo Express | ❌      |
+| mysql         | phpdev-mysql         | 3307        | MySQL         | ❌      |
+| php           | phpdev               | 8000        | Apache + PHP  | ✅      |
+| postgres      | phpdev-postgres      | 5432        | PostgreSQL    | ❌      |
+| redis         | phpdev-redis         | 6379        | Redis         | ✅      |
 
 -----------
 
@@ -27,7 +29,7 @@ python setup.py
 Build the Docker images using the following command:
 
 ```
-docker compose build
+docker-compose build
 ```
 
 ## Starting
@@ -35,13 +37,13 @@ docker compose build
 Starting the environment is done using the following command:
 
 ```
-docker compose up -d
+docker-compose up -d
 ```
 
-If you don't want to start all services then you can pass a list of the ones you want to use:
+If you don't want to start all enabled services then you can pass a list of the ones you want to use:
 
 ```
-docker compose up -d php redis postgres
+docker-compose up -d php
 ```
 
 ## Stopping
@@ -49,5 +51,5 @@ docker compose up -d php redis postgres
 Stopping the environment is done using the following command:
 
 ```
-docker compose down
+docker-compose down
 ```

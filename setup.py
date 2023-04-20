@@ -49,6 +49,7 @@ if __name__ == '__main__':
         current_directory + '/storage',
         current_directory + '/storage/mariadb',
         current_directory + '/storage/mysql',
+		current_directory + '/storage/mongodb',
         current_directory + '/storage/postgres',
         current_directory + '/storage/redis',
     ]
