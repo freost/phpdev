@@ -29,7 +29,7 @@ python setup.py
 Build the Docker images using the following command:
 
 ```
-docker compose build
+docker-compose build
 ```
 
 ## Starting
@@ -37,13 +37,13 @@ docker compose build
 Starting the environment is done using the following command:
 
 ```
-docker compose up -d
+docker-compose up -d
 ```
 
-If you don't want to start all services then you can pass a list of the ones you want to use:
+If you don't want to start all enabled services then you can pass a list of the ones you want to use:
 
 ```
-docker compose up -d php redis postgres
+docker-compose up -d php
 ```
 
 ## Stopping
@@ -51,5 +51,5 @@ docker compose up -d php redis postgres
 Stopping the environment is done using the following command:
 
 ```
-docker compose down
+docker-compose down
 ```
