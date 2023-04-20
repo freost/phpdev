@@ -37,8 +37,9 @@ RUN docker-php-ext-install pdo pdo_mysql pcntl
 
 # Install MongoDB
 
+RUN apt install libssl-dev
 RUN pecl config-set php_ini "${PHP_INI_DIR}/php.ini"
-RUN pecl install mongodb
+RUN pecl install --configureoptions 'enable-ssl=yes' mongodb
 RUN echo "extension=mongodb.so" > "${PHP_INI_DIR}/conf.d/mongo.ini"
 
 # Enable mod_rewrite
