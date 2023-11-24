@@ -39,12 +39,20 @@ RUN docker-php-ext-enable xdebug
 RUN docker-php-ext-configure pcntl --enable-pcntl
 RUN docker-php-ext-install pdo pdo_mysql pcntl
 
+# Configure pecl
+
+RUN pecl config-set php_ini "${PHP_INI_DIR}/php.ini"
+
 # Install MongoDB
 
 RUN apt install libssl-dev
-RUN pecl config-set php_ini "${PHP_INI_DIR}/php.ini"
 RUN pecl install --configureoptions 'enable-ssl=yes' mongodb
 RUN echo "extension=mongodb.so" > "${PHP_INI_DIR}/conf.d/mongo.ini"
+
+# Install APCu
+
+RUN pecl install apcu
+RUN docker-php-ext-enable apcu
 
 # Enable mod_rewrite
 
