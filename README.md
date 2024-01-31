@@ -4,7 +4,7 @@ The PHP development environment includes the following services:
 
 | Service       | Container            | Port        | Description   | Enabled |
 |---------------|----------------------|-------------|---------------|---------|
-| beanstalkd    | phpdev-beanstalkd    | 11300       | Beanstalkd    | ✅      |
+| beanstalkd    | phpdev-beanstalkd    | 11300       | Beanstalkd    | ❌      |
 | mailhog       | phpdev-mailhog       | 8025, 10250 | Mailhog       | ❌      |
 | mariadb       | phpdev-mariadb       | 3306        | MariaDB       | ❌      |
 | mongo         | phpdev-mongodb       | 27017       | MongoDB       | ❌      |

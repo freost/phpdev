@@ -16,13 +16,13 @@ services:
       - './docker/php-${PHP_VERSION}-apache/php/conf.d/overrides.ini:/usr/local/etc/php/conf.d/overrides.ini'
     env_file:
       - './env/php.env'
-  beanstalkd:
-    build:
-      context: './docker/beanstalkd'
-      dockerfile: Dockerfile
-    container_name: 'phpdev-beanstalkd'
-    ports:
-      - '11300:11300'
+  # beanstalkd:
+  #   build:
+  #     context: './docker/beanstalkd'
+  #     dockerfile: Dockerfile
+  #   container_name: 'phpdev-beanstalkd'
+  #   ports:
+  #     - '11300:11300'
   redis:
     image: 'redis:${REDIS_VERSION}'
     container_name: 'phpdev-redis'
