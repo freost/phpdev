@@ -12,7 +12,7 @@ The PHP development environment includes the following services:
 | mysql         | phpdev-mysql         | 3307        | MySQL         | ❌      |
 | php           | phpdev               | 8000        | Apache + PHP  | ✅      |
 | postgres      | phpdev-postgres      | 5432        | PostgreSQL    | ❌      |
-| redis         | phpdev-redis         | 6379        | Redis         | ✅      |
+| redis-stack   | phpdev-redis-stack   | 6379, 13333 | Redis         | ✅      |
 
 -----------
 
