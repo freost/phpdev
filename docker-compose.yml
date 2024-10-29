@@ -1,20 +1,24 @@
 services:
-  php:
+  php-fpm:
     build:
-      context: './docker/php-${PHP_VERSION}-apache'
+      context: './docker/php-${PHP_VERSION}-fpm'
       dockerfile: Dockerfile
     container_name: 'phpdev'
+    volumes:
+      - './htdocs:/var/www/html'
+      - './docker/php-${PHP_VERSION}-fpm/php/conf.d/docker-php-ext-opcache.ini:/usr/local/etc/php/conf.d/docker-php-ext-opcache.ini'
+      - './docker/php-${PHP_VERSION}-fpm/php/conf.d/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini'
+      - './docker/php-${PHP_VERSION}-fpm/php/conf.d/overrides.ini:/usr/local/etc/php/conf.d/overrides.ini'
+    env_file:
+      - './env/php.env'
+  nginx:
+    image: 'nginx:${NGINX_VERSION}'
+    container_name: 'phpdev-nginx'
     ports:
       - '8000:80'
     volumes:
-      - './htdocs:/var/www/html'
-      - './docker/php-${PHP_VERSION}-apache/apache/ports.conf:/etc/apache2/ports.conf'
-      - './docker/php-${PHP_VERSION}-apache/apache/sites-available/000-default.conf:/etc/apache2/sites-available/000-default.conf'
-      - './docker/php-${PHP_VERSION}-apache/php/conf.d/docker-php-ext-opcache.ini:/usr/local/etc/php/conf.d/docker-php-ext-opcache.ini'
-      - './docker/php-${PHP_VERSION}-apache/php/conf.d/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini'
-      - './docker/php-${PHP_VERSION}-apache/php/conf.d/overrides.ini:/usr/local/etc/php/conf.d/overrides.ini'
-    env_file:
-      - './env/php.env'
+      - './htdocs:/etc/nginx/html'
+      - './docker/nginx/default.conf:/etc/nginx/conf.d/default.conf'
 # beanstalkd:
 #   build:
 #     context: './docker/beanstalkd'

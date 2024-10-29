@@ -1,4 +1,4 @@
-FROM php:8.2-apache
+FROM php:8.2-fpm
 
 RUN apt-get update
 
@@ -53,7 +53,3 @@ RUN echo "extension=mongodb.so" > "${PHP_INI_DIR}/conf.d/mongo.ini"
 
 RUN pecl install apcu
 RUN docker-php-ext-enable apcu
-
-# Enable mod_rewrite
-
-RUN a2enmod rewrite

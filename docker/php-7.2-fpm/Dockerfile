@@ -1,4 +1,4 @@
-FROM php:7.3-apache
+FROM php:7.2-fpm
 
 RUN apt-get update
 
@@ -34,7 +34,3 @@ RUN docker-php-ext-enable xdebug
 
 RUN docker-php-ext-configure pcntl --enable-pcntl
 RUN docker-php-ext-install pdo pdo_mysql pcntl
-
-# Enable mod_rewrite
-
-RUN a2enmod rewrite

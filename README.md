@@ -10,7 +10,8 @@ The PHP development environment includes the following services:
 | mongo         | phpdev-mongodb       | 27017       | MongoDB                   | ❌      |
 | mongo-express | phpdev-mongo-express | 8081        | Mongo Express             | ❌      |
 | mysql         | phpdev-mysql         | 3307        | MySQL                     | ❌      |
-| php           | phpdev               | 8000        | Apache + PHP              | ✅      |
+| nginx         | phpdev-nginx         | 8000        | Nginx                     | ✅      |
+| php-fpm       | phpdev               | -           | PHP-FPM                   | ✅      |
 | postgres      | phpdev-postgres      | 5432        | PostgreSQL                | ❌      |
 | redis         | phpdev-redis         | 6379, 13333 | Redis Stack, RedisInsight | ✅      |
 
