@@ -13,7 +13,8 @@ The PHP development environment includes the following services:
 | nginx         | phpdev-nginx         | 8000        | Nginx                     | ✅      |
 | php-fpm       | phpdev               | -           | PHP-FPM                   | ✅      |
 | postgres      | phpdev-postgres      | 5432        | PostgreSQL                | ❌      |
-| redis         | phpdev-redis         | 6379, 13333 | Redis Stack, RedisInsight | ✅      |
+| redis         | phpdev-redis         | 6379, 13333 | Redis                     | ✅      |
+| redis-insight | phpdev-redis-insight | 13333       | Redis Insight             | ✅      |
 
 -----------
 

@@ -52,6 +52,7 @@ if __name__ == '__main__':
         current_directory + '/storage/mongodb',
         current_directory + '/storage/postgres',
         current_directory + '/storage/redis',
+        current_directory + '/storage/redis-insight',
     ]
 
     for directory in directories:

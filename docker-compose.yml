@@ -27,15 +27,23 @@ services:
 #   ports:
 #     - '11300:11300'
   redis:
-    image: 'redis/redis-stack:${REDIS_STACK_VERSION}'
+    image: 'redis:${REDIS_VERSION}'
     container_name: 'phpdev-redis'
     ports:
       - '6379:6379'
-      - '13333:8001'
     volumes:
       - './storage/redis:/data'
     environment:
       REDIS_ARGS: --appendonly yes
+  redis-insight:
+    image: 'redis/redisinsight:${REDIS_INSIGHT_VERSION}'
+    container_name: 'phpdev-redis-insight'
+    ports:
+      - '13333:5540'
+    volumes:
+      - './storage/redis-insight:/data'
+    environment:
+      RI_REDIS_HOST: phpdev-redis
 #  postgres:
 #    image: 'postgres:${POSTGRES_VERSION}'
 #    container_name: 'phpdev-postgresql'
