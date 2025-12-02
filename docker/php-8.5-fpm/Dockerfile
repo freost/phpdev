@@ -1,10 +1,6 @@
-FROM php:8.4-fpm
+FROM php:8.5-fpm
 
 RUN apt-get update
-
-# Install OPcache support
-
-RUN docker-php-ext-install opcache
 
 # Install PDO
 
@@ -31,8 +27,8 @@ RUN docker-php-ext-install exif
 
 # Install xdebug
 
-RUN pecl install xdebug
-RUN docker-php-ext-enable xdebug
+#RUN pecl install xdebug
+#RUN docker-php-ext-enable xdebug
 
 # Install pcntl
 
@@ -53,12 +49,3 @@ RUN echo "extension=mongodb.so" > "${PHP_INI_DIR}/conf.d/mongo.ini"
 
 RUN pecl install apcu
 RUN docker-php-ext-enable apcu
-
-# Install FFI
-
-RUN apt-get install -y libffi-dev
-RUN docker-php-ext-install ffi
-
-# Install libexempi
-
-RUN apt-get install exempi -y
