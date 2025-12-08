@@ -27,8 +27,8 @@ RUN docker-php-ext-install exif
 
 # Install xdebug
 
-#RUN pecl install xdebug
-#RUN docker-php-ext-enable xdebug
+RUN pecl install xdebug
+RUN docker-php-ext-enable xdebug
 
 # Install pcntl
 
