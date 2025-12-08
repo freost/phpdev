@@ -49,3 +49,12 @@ RUN echo "extension=mongodb.so" > "${PHP_INI_DIR}/conf.d/mongo.ini"
 
 RUN pecl install apcu
 RUN docker-php-ext-enable apcu
+
+# Install FFI
+
+RUN apt-get install -y libffi-dev
+RUN docker-php-ext-install ffi
+
+# Install libexempi
+
+RUN apt-get install exempi -y
