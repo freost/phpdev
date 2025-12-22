@@ -17,9 +17,15 @@ RUN docker-php-ext-install pdo_mysql
 
 # Install GD support
 
-RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev libwebp-dev libavif-dev
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp --with-avif
 RUN docker-php-ext-install -j$(nproc) gd
+
+# Install Imagick support
+
+RUN apt-get install -y imagemagick libmagickwand-dev
+RUN pecl install imagick
+RUN docker-php-ext-enable imagick
 
 # Install exif support
 
