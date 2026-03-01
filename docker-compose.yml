@@ -71,9 +71,9 @@ services:
 #      - './storage/mysql:/var/lib/mysql'
 #    environment:
 #      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-#  mailhog:
-#    image: 'mailhog/mailhog'
-#    container_name: 'phpdev-mailhog'
+#  mailpit:
+#    image: 'axllent/mailpit'
+#    container_name: 'phpdev-mailpit'
 #    ports:
 #      - '8025:8025'
 #      - '10250:1025'
