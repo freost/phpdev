@@ -18,6 +18,16 @@ The PHP development environment supports PHP versions `7.4` through `8.5` and in
 
 -----------
 
+## Setup
+
+Run the following script to create the required directories:
+
+```
+python setup.py
+```
+
+> Use the `--htdocs-source` argument if you want to symlink `htdocs` to an existing directory.
+
 ## Configuration
 
 The PHP version as well as the versions of most services can be set using the version variables in the `.env`file:
@@ -30,22 +40,6 @@ PHPDEV_MARIADB_VERSION=12
 
 > Note that some services may require their data path to be adjusted when switching versions (e.g. `PHPDEV_POSTGRES_DATA_PATH`).
 
-## Setup
-
-Run the following script to create the required directories:
-
-```
-python setup.py
-```
-
-> Use the `--htdocs-source` argument if you want to symlink `htdocs` to an existing directory.
-
-Build the Docker images using the following command:
-
-```
-docker-compose build
-```
-
 ## Starting
 
 Starting the environment is done using the following command:
@@ -53,6 +47,8 @@ Starting the environment is done using the following command:
 ```
 docker-compose up -d
 ```
+
+> Images are built automatically on first start. Use `docker-compose up -d --build` to rebuild after changing a Dockerfile or switching versions.
 
 Optional services can be permanently enabled by adding their profile name to the comma-separated `COMPOSE_PROFILES` variable in the `.env` file:
 
