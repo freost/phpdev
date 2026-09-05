@@ -27,6 +27,10 @@ RUN apt-get install -y imagemagick libmagickwand-dev
 RUN pecl install imagick
 RUN docker-php-ext-enable imagick
 
+# Install Vips support
+
+RUN apt-get install -y --no-install-recommends libvips42t64
+
 # Install exif support
 
 RUN docker-php-ext-install exif

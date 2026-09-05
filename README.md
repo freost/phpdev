@@ -5,16 +5,16 @@ The PHP development environment includes the following services:
 | Service       | Container            | Port        | Description               | Enabled |
 |---------------|----------------------|-------------|---------------------------|---------|
 | beanstalkd    | phpdev-beanstalkd    | 11300       | Beanstalkd                | ❌      |
-| mailpit       | phpdev-mailpit       | 8025, 10250 | SMTP, Mailpit             | ❌      |
+| mailpit       | phpdev-mailpit       | 8025        | SMTP, Mailpit             | ❌      |
 | mariadb       | phpdev-mariadb       | 3306        | MariaDB                   | ❌      |
-| mongo         | phpdev-mongodb       | 27017       | MongoDB                   | ❌      |
-| mongo-express | phpdev-mongo-express | 8081        | Mongo Express             | ❌      |
+| mongo         | phpdev-mongo         | 27017       | MongoDB                   | ❌      |
+| mongo         | phpdev-mongo-express | 8081        | Mongo Express             | ❌      |
 | mysql         | phpdev-mysql         | 3307        | MySQL                     | ❌      |
-| nginx         | phpdev-nginx         | 8000        | Nginx                     | ✅      |
-| php-fpm       | phpdev               | -           | PHP-FPM                   | ✅      |
-| postgres      | phpdev-postgres      | 5432        | PostgreSQL                | ❌      |
+|               | phpdev-nginx         | 8000        | Nginx                     | ✅      |
+|               | phpdev               | -           | PHP-FPM                   | ✅      |
+| postgres      | phpdev-postgresql    | 5432        | PostgreSQL                | ❌      |
 | redis         | phpdev-redis         | 6379        | Redis                     | ✅      |
-| redis-insight | phpdev-redis-insight | 13333       | Redis Insight             | ✅      |
+| redis         | phpdev-redis-insight | 13333       | Redis Insight             | ✅      |
 
 -----------
 
@@ -42,11 +42,19 @@ Starting the environment is done using the following command:
 docker-compose up -d
 ```
 
-If you don't want to start all enabled services then you can pass a list of the ones you want to use:
+Optional services can be permanently enabled by adding their profile name to the comma-separated `COMPOSE_PROFILES` variable in the `.env` file:
 
 ```
-docker-compose up -d php
+COMPOSE_PROFILES=redis,mongo,mysql
 ```
+
+If you want to do a one-time start of a disabled service then you can enable its profile:
+
+```
+docker-compose --profile mongo up -d
+```
+
+> This starts the disabled service in addition to the enabled ones. You can also start a single service by name (e.g. `docker-compose up -d mongo`), which enables its profile automatically.
 
 ## Stopping
 
