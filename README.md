@@ -23,7 +23,7 @@ The PHP development environment supports PHP versions `7.4` through `8.5` and in
 Run the following script to create the required directories:
 
 ```
-python setup.py
+python setup.sh
 ```
 
 > Use the `--htdocs-source` argument if you want to symlink `htdocs` to an existing directory.
