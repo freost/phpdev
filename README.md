@@ -20,7 +20,7 @@ The PHP development environment supports PHP versions `7.4` through `8.5` and in
 
 ## Configuration
 
-The PHP version as well as the versions of most services can be set using the version variables:
+The PHP version as well as the versions of most services can be set using the version variables in the `.env`file:
 
 ```
 PHPDEV_PHP_VERSION=8.5
