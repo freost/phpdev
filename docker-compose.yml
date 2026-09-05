@@ -61,7 +61,7 @@ services:
     ports:
       - '5432:5432'
     volumes:
-      - './storage/postgres:/var/lib/postgresql'
+      - './storage/postgres:${POSTGRES_DATA_PATH}'
     environment:
       POSTGRES_USER: 'root'
       POSTGRES_PASSWORD: ${POSTGRES_ROOT_PASSWORD}
@@ -73,7 +73,7 @@ services:
     ports:
       - '3306:3306'
     volumes:
-      - './storage/mariadb:/var/lib/mysql'
+      - './storage/mariadb:${MARIADB_DATA_PATH}'
     environment:
       MYSQL_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
 
@@ -84,7 +84,7 @@ services:
     ports:
       - '3307:3306'
     volumes:
-      - './storage/mysql:/var/lib/mysql'
+      - './storage/mysql:${MYSQL_DATA_PATH}'
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
