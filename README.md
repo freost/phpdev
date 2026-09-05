@@ -1,6 +1,6 @@
 # Docker based PHP development environment
 
-The PHP development environment includes the following services:
+The PHP development environment supports PHP versions `7.4` through `8.5` and includes the following services:
 
 | Service       | Container            | Port        | Description               | Enabled |
 |---------------|----------------------|-------------|---------------------------|---------|
@@ -17,6 +17,18 @@ The PHP development environment includes the following services:
 | redis         | phpdev-redis-insight | 13333       | Redis Insight             | ✅      |
 
 -----------
+
+## Configuration
+
+The PHP version as well as the versions of most services can be set using the version variables:
+
+```
+PHPDEV_PHP_VERSION=8.5
+PHPDEV_POSTGRES_VERSION=18
+PHPDEV_MARIADB_VERSION=12
+```
+
+> Note that some services may require their data path to be adjusted when switching versions (e.g. `PHPDEV_POSTGRES_DATA_PATH`).
 
 ## Setup
 
