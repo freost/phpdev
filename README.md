@@ -15,6 +15,8 @@ The PHP development environment supports PHP versions `7.4` through `8.5` and in
 | postgres      | phpdev-postgresql    | 5432        | PostgreSQL                | ❌      |
 | redis         | phpdev-redis         | 6379        | Redis                     | ✅      |
 | redis         | phpdev-redis-insight | 13333       | Redis Insight             | ✅      |
+| valkey        | phpdev-valkey        | 6380        | Valkey                    | ❌      |
+| valkey        | phpdev-valkey-admin  | 13334       | Valkey Admin              | ❌      |
 
 -----------
 

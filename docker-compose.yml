@@ -54,6 +54,26 @@ services:
     environment:
       RI_REDIS_HOST: phpdev-redis
 
+  valkey:
+    profiles: ['valkey']
+    image: 'valkey/valkey:${PHPDEV_VALKEY_VERSION}'
+    container_name: 'phpdev-valkey'
+    ports:
+      - '${PHPDEV_VALKEY_PORT:-6380}:6379'
+    volumes:
+      - './storage/valkey:/data'
+    environment:
+      VALKEY_EXTRA_FLAGS: --appendonly yes
+
+  valkey-admin:
+    profiles: ['valkey']
+    image: 'valkey/valkey-admin:${PHPDEV_VALKEY_ADMIN_VERSION}'
+    container_name: 'phpdev-valkey-admin'
+    ports:
+      - '${PHPDEV_VALKEY_ADMIN_PORT:-13334}:8080'
+    volumes:
+      - './storage/valkey-admin:/app/data'
+
   postgres:
     profiles: ['postgres']
     image: 'postgres:${PHPDEV_POSTGRES_VERSION}'

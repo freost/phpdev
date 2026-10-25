@@ -78,6 +78,8 @@ DIRECTORIES=(
     "$CURRENT_DIRECTORY/storage/postgres"
     "$CURRENT_DIRECTORY/storage/redis"
     "$CURRENT_DIRECTORY/storage/redis-insight"
+    "$CURRENT_DIRECTORY/storage/valkey"
+    "$CURRENT_DIRECTORY/storage/valkey-admin"
 )
 
 for DIRECTORY in "${DIRECTORIES[@]}"; do
