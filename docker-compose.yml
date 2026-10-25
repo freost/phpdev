@@ -47,6 +47,9 @@ services:
     profiles: ['redis']
     image: 'redis/redisinsight:${PHPDEV_REDIS_INSIGHT_VERSION}'
     container_name: 'phpdev-redis-insight'
+    depends_on:
+      redis:
+        condition: service_started
     ports:
       - '${PHPDEV_REDIS_INSIGHT_PORT:-13333}:5540'
     volumes:
