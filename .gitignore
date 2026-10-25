@@ -1,6 +1,7 @@
 .DS_Store
 .env
 /htdocs
+/override
 /storage
 compose.override.yaml
 compose.override.yml
